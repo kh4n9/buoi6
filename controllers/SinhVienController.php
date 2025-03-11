@@ -62,9 +62,12 @@ class SinhVienController {
             if (isset($_POST['createAccount']) && $_POST['createAccount'] == 1) {
                 require_once 'models/User.php';
                 
+                $username = !empty($_POST['Username']) ? $_POST['Username'] : $_POST['MaSinhVien'];
+                $password = !empty($_POST['Password']) ? $_POST['Password'] : $_POST['MaSinhVien'];
+                
                 $userData = [
-                    'Username' => $_POST['MaSinhVien'],
-                    'Password' => password_hash($_POST['MaSinhVien'], PASSWORD_DEFAULT), // Default password is student ID
+                    'Username' => $username,
+                    'Password' => password_hash($password, PASSWORD_DEFAULT),
                     'Role' => 'Student',
                     'SinhVienID' => $sinhVienId
                 ];

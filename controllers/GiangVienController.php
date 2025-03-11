@@ -53,9 +53,12 @@ class GiangVienController {
                 $role = isset($_POST['isHeadOfDepartment']) && $_POST['isHeadOfDepartment'] == 1 
                     ? ROLE_DEPT_HEAD : ROLE_LECTURER;
                 
+                $username = !empty($_POST['Username']) ? $_POST['Username'] : $_POST['MaGiangVien'];
+                $password = !empty($_POST['Password']) ? $_POST['Password'] : $_POST['MaGiangVien'];
+                
                 $userData = [
-                    'Username' => $_POST['MaGiangVien'],
-                    'Password' => password_hash($_POST['MaGiangVien'], PASSWORD_DEFAULT), // Default password is lecturer ID
+                    'Username' => $username,
+                    'Password' => password_hash($password, PASSWORD_DEFAULT),
                     'Role' => $role,
                     'GiangVienID' => $giangVienId
                 ];

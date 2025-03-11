@@ -43,6 +43,18 @@
                 <small class="form-text text-muted">If checked, a user account will be created with the lecturer ID as both username and password.</small>
             </div>
             
+            <div class="col-md-6 account-fields">
+                <label for="Username" class="form-label">Username <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="Username" name="Username">
+                <div class="form-text">Choose a username for this lecturer to login with.</div>
+            </div>
+            
+            <div class="col-md-6 account-fields">
+                <label for="Password" class="form-label">Password</label>
+                <input type="text" class="form-control" id="Password" name="Password">
+                <div class="form-text">Leave empty to use Lecturer ID as default password.</div>
+            </div>
+            
             <div class="col-md-12">
                 <div class="form-check form-switch">
                     <input class="form-check-input" type="checkbox" id="isHeadOfDepartment" name="isHeadOfDepartment" value="1">
@@ -58,3 +70,23 @@
         </form>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const createAccountCheckbox = document.getElementById('createAccount');
+    const accountFields = document.querySelectorAll('.account-fields');
+    
+    function toggleAccountFields() {
+        const display = createAccountCheckbox.checked ? 'block' : 'none';
+        accountFields.forEach(field => {
+            field.style.display = display;
+        });
+    }
+    
+    // Initial toggle
+    toggleAccountFields();
+    
+    // Listen for changes
+    createAccountCheckbox.addEventListener('change', toggleAccountFields);
+});
+</script>
