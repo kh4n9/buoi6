@@ -10,8 +10,8 @@ INSERT INTO GiangVien (HoTen, MaGiangVien, Email, SoDienThoai, BoMon)
 VALUES ('Tran Thi B', 'GV001', 'gv1@example.com', '0987654321', 'Computer Science');
 SET @giangVienID = LAST_INSERT_ID();
 
--- Precomputed hashed password for 'password'
-SET @passwordHash = '$2y$10$e0NR.lLGZO.JE/QwY1kNEOxzJeOm9ZxUWCMaglzHoTRHovYj/wQRW';
+-- Precomputed hashed password for 'bintheky22'
+SET @passwordHash = '$2y$10$xZodRwOaheCrDVykhHGhuOTEQplxTHyk9pO0Et9Dd2KelmCfASbcy';
 
 -- Insert user for Student role with link to SinhVien
 INSERT INTO NguoiDung (Username, Password, Role, SinhVienID)
